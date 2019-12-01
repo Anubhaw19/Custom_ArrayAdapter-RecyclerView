@@ -7,12 +7,25 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-<TextView
+<LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/txt1"
-    android:textSize="25dp"
-    tools:text="text1" />
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img"
+        android:src="@mipmap/ic_launcher"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt1"
+        android:textSize="25dp"
+        tools:text="text1" />
+
+
+</LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,5 +33,4 @@
         android:id="@+id/txt2"
         android:textSize="20dp"
         tools:text="text2"/>
-
 </LinearLayout>
