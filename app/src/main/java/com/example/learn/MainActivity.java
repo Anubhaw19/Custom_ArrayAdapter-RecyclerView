@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView txt=(TextView)findViewById(R.id.text);
-        TextView txt2=(TextView)findViewById(R.id.text2);
+        final TextView txt2=(TextView)findViewById(R.id.text2);
         txt.setOnClickListener(new View.OnClickListener(){
                                     @Override
                                     public void onClick(View view)
@@ -27,8 +27,12 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 }
         );
-        WorldClickListener clickListener=new WorldClickListener();
-        txt2.setOnClickListener(clickListener);
+       txt2.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+                    startActivity(new Intent(MainActivity.this,TEST.class));
+           }
+       });
     }
 
 }

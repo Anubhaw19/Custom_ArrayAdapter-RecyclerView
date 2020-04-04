@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,9 +31,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
             ListItemView= LayoutInflater.from(getContext()).inflate(R.layout.list_item,parent,false);
         }
         // Get the {@link Word} object located at this position in the list.
-        Word CurrentWord=getItem(position);
+        final Word CurrentWord=getItem(position);
         // Find the TextView in the list_item.xml layout with the ID txt1.
-        TextView defaultText=(TextView)ListItemView.findViewById(R.id.txt1);
+        final TextView defaultText=(TextView)ListItemView.findViewById(R.id.txt1);
         // Get the  defaultLanguagae from the current Word object and
         // set this text on the defaultText TextView
         defaultText.setText(CurrentWord.getDefaultTranslation());
@@ -44,6 +45,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         ImageView imageView=(ImageView)ListItemView.findViewById(R.id.img);
         imageView.setImageResource(CurrentWord.getImageResourceId());
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),CurrentWord.getDefaultTranslation()+" clicked",Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
 
         return ListItemView;
